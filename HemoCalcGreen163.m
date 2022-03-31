@@ -1,4 +1,4 @@
-function [Output] = HemoCalcGreen163(M,SpecID)
+function [Output] = HemoCalcGreen163(M)
 %Input M is 1044xtime_points matrix
 %Input could be GCaMP+Td or other similiar data
 
@@ -6,21 +6,18 @@ function [Output] = HemoCalcGreen163(M,SpecID)
 Rscript='/usr/local/bin/Rscript';
 Rfile='~/R_scripts/hemo_correction_script163_github.R';
 
-if SpecID == 'A'
- COL = 290:452;
- Ref = '~/Documents/Reference_files/A-Dual-GCaMP&tdTomato.csv';
- %Ref = '~/Documents/Reference_files/A-Dual-GCaMP&mCherry.csv';
- parameters50='~/Documents/MATLAB/HemoCorrectionData/parameters_Td1_harry.xlsx';
-end
-if SpecID == 'B'
- COL = 294:456; 
- Ref = '~/Documents/Reference_files/B-Dual-GCaMP&tdTomato.csv';
- parameters50='~/Documents/MATLAB/HemoCorrectionData/parameters_Td2_harry.xlsx';
-end
+
+COL = 290:452; % define the wavelength range (575 - 700 nm);
+Ref = './Dual-GCaMP&tdTomato.csv';
+parameters = '~/parameters_Td163.xlsx';
 
 %Unmixing G and Td
 Ref_mat = csvread(Ref,1,1);
-coef = unmixing2_mod(M',Ref_mat); % coef is 2 x timepoints matrix
+coef=zeros(size(Ref_mat,2),size(M,2)); 
+for i=1:size(M,2)
+  coef(:,i)=lsqnonneg(Ref_mat(140:500,:),M(140:500,i)); 
+end
+% coef is 2 x timepoints matrix
 
 %retrieve G coefficients and replace negative values with baseline mean
 idx = coef(1,:) < 0;
@@ -35,7 +32,7 @@ data_4Hb = data_fixed(:,COL) - tmp;
 t=array2table(data_4Hb);
 writetable(t,'tmp.xlsx','WriteVariableNames' ,0);
 
-eval(['!',Rscript,' ',Rfile,' ','tmp.xlsx ',parameters50,' ','tmp.txt ','.'])
+eval(['!',Rscript,' ',Rfile,' ','tmp.xlsx ',parameters,' ','tmp.txt ','.'])
 % 
 file = fopen('tmp.txt','r');
 Hbs = textscan(file, ['%f' '%f' '%f' '%f'],'HeaderLines',1);
