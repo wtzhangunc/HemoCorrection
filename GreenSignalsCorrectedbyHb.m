@@ -2,12 +2,12 @@ function [Green_cor, Green_uncor_perc]=GreenSignalsCorrectionbyHb_matrix(Green_u
 %Green_uncor should be the raw unmixing results, usually from HemoCalc
 %Green_uncor should be 10 time points longer than HbO and HbR
 
-parameters = xlsread('~/Documents/MATLAB/HemoCorrectionData/parameters_red_29.xlsx');
-%parameters = xlsread('~/Documents/MATLAB/HemoCorrectionData/parameters_red_hillman.xlsx');
+parameters = xlsread('~/parameters_green4correction.xlsx');
 
 OxyE488 = 24174.8;
 Deoxy488 = 15898;
-X488 = 0.0451; %Harry's X488 value from 29 trials
+X488 = 0.0451; 
+
 x=((OxyE488 * X488 + parameters(:,2)) .* parameters(:,4))';
 y=((Deoxy488 * X488 + parameters(:,3)) .* parameters(:,4))';
 
@@ -15,7 +15,7 @@ y=((Deoxy488 * X488 + parameters(:,3)) .* parameters(:,4))';
 %x=((OxyE561 * X561 + parameters(:,2)) .* parameters(:,4))';
 %y=((Deoxy561 * X561 + parameters(:,3)) .* parameters(:,4))';
 
-HbO = sgolayfilt(HbO,2,61)*1.2;
+HbO = sgolayfilt(HbO,2,61)*1.2; %1.2 is the scaling factor which may vary
 HbR = sgolayfilt(HbR,2,61)*1.2;
 c = HbO * x + HbR * y ;
 
