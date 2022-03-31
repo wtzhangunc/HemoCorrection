@@ -6,7 +6,7 @@ parameters = xlsread('~/parameters_green4correction.xlsx');
 
 OxyE488 = 24174.8;
 Deoxy488 = 15898;
-X488 = 0.0451; 
+X488 = 0.0451; % excitation laser for tdTomato. use X561 if excited by 561 nm laser
 
 x=((OxyE488 * X488 + parameters(:,2)) .* parameters(:,4))';
 y=((Deoxy488 * X488 + parameters(:,3)) .* parameters(:,4))';
