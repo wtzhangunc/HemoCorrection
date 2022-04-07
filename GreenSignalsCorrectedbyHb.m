@@ -1,6 +1,7 @@
 function [Green_cor, Green_uncor_perc]=GreenSignalsCorrectionbyHb_matrix(Green_uncor,HbO,HbR)
-%Green_uncor should be the raw unmixing results, usually from HemoCalc
-%Green_uncor should be 10 time points longer than HbO and HbR
+% Green_uncor should be the raw unmixing results, usually from HemoCalc
+% Green_uncor should be 10 time points longer than HbO and HbR
+% Weiting Zhang, 04/07/2022
 
 parameters = xlsread('~/parameters_green4correction.xlsx');
 
