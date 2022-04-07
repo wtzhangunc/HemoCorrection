@@ -1,6 +1,7 @@
 function [Blue_cor,Blue_uncor_perc]=BlueSignalsCorrectedbyHb(Blue_uncor,HbO,HbR)
-%Blue_uncor should be the raw unmixing results
-%Blue_uncor should be 10 time points longer than HbO and HbR
+% Blue_uncor should be the raw unmixing results
+% Blue_uncor should be 10 time points longer than HbO and HbR
+% Weiting Zhang, 04/07/2022
 
 parameters = xlsread('~/parameters_blue4correction.xlsx');
 
