@@ -1,5 +1,7 @@
 function GCaMPCorrectionbyTd(EXCELFILE)
-%in the same directory as the raw text files
+% in the same directory as the raw text files
+% Weiting Zhang, 04/07/2022
+
 
 close all;
 
