@@ -1,10 +1,11 @@
 function [Output] = HemoCalcBlue400(M,SpecID)
-%Input M is 1044xtime_points matrix
-%Input could be EYFP, GFP, or GCaMP400 data
- 
-Rscript='/usr/local/bin/Rscript';
-Rfile='~/R_scripts/hemo_correction_script400nm.R';
-parameters55='~/Documents/MATLAB/HemoCorrectionData/parameters_55_29trial.xlsx';
+% Input M is 1044xtime_points matrix
+% Input could be EYFP, GFP, or GCaMP400 data
+% Weiting Zhang, 04/07/2022
+
+Rscript='/usr/local/bin/Rscript'; %Edit this line according to your R environment
+Rfile='~/R_scripts/hemo_correction_script400nm.R'; %Edit this line according to your R environment
+parameters55='~/Documents/MATLAB/HemoCorrectionData/parameters_55_29trial.xlsx';%Edit this line accordingly
 
 if SpecID == 'A'
  COL = 196:250;
