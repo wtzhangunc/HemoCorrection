@@ -1,6 +1,6 @@
 # HemoCorrection
 # This projected is related to the paper published by STAR Protocols
-# titled with "Simultaneous Recording of Neuronal and Vascular Activity Using Fiber-photometry "
+# Titled with "Simultaneous Recording of Neuronal and Vascular Activity Using Fiber-photometry "
 
 # (1) for the GCamP and tdTomato data, download the following files
 #   a. SampleDataGCaMPtdTomato.txt, 
@@ -8,7 +8,7 @@
 #   c. hemo_correction_script163_Github.R 
 #   d. Dual-GCaMP&tdTomato.csv
 #   e. parameters_Td163.xlsx; parameters_blue4correction.xlsx; parameters_green4correction.xlsx;
-# (2) run following command in MATLAB to fit for the hemodynamic changes (deltaHbO, deltaHbR, and deltaHbT) 
+# (2) run following commands in MATLAB to fit for the hemodynamic changes (deltaHbO, deltaHbR, and deltaHbT) 
 #       M = dlmread(textfile,'\t',15,2); %15 is the number of header lines
 #       M = M';
 #       [Output]=HemoCalcGreen163(M);
