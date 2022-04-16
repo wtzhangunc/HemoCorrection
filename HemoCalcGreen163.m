@@ -7,7 +7,7 @@ Rscript='/usr/local/bin/Rscript';% Edit this line according to your R environmen
 Rfile='~/R_scripts/hemo_correction_script163_github.R';% Edit this line according to your R environment
 
 
-COL = 290:452; % define the wavelength range (575 - 700 nm);
+COL = 294:456; % define the wavelength range (575 - 700 nm);
 Ref = './Dual-GCaMP&tdTomato.csv';
 parameters = '~/parameters_Td163.xlsx';
 
