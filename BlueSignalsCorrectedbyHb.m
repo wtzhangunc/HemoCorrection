@@ -3,7 +3,7 @@ function [Blue_cor,Blue_uncor_perc]=BlueSignalsCorrectedbyHb(Blue_uncor,HbO,HbR)
 % Blue_uncor should be 10 time points longer than HbO and HbR
 % Weiting Zhang, 04/07/2022
 
-parameters = xlsread('~/parameters_blue4correction.xlsx');
+parameters = xlsread('./parameters_blue4correction.xlsx');
 
 OxyE488 = 24174.8;
 Deoxy488 = 15898;
@@ -11,8 +11,7 @@ X488 = 0.0451;
 
 x=((OxyE488 * X488 + parameters(:,2)) .* parameters(:,4))';
 y=((Deoxy488 * X488 + parameters(:,3)) .* parameters(:,4))';
-%Corrected for GCaMP, HbO/HbR curves smoothed with Savitzky-Golay filtering
-%seems better than the butter filtering
+
 HbO = sgolayfilt(HbO,2,61)*1.2; %1.2 is the scaling factor which may vary
 HbR = sgolayfilt(HbR,2,61)*1.2; %1.2 is the scaling factor which may vary
 c = HbO * x + HbR * y ;
