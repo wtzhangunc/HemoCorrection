@@ -13,8 +13,8 @@ x=((OxyE488 * X488 + parameters(:,2)) .* parameters(:,4))';
 y=((Deoxy488 * X488 + parameters(:,3)) .* parameters(:,4))';
 %Corrected for GCaMP, HbO/HbR curves smoothed with Savitzky-Golay filtering
 %seems better than the butter filtering
-HbO = sgolayfilt(HbO,2,61)*1.2; (1.2 is the scaling factor which may vary)
-HbR = sgolayfilt(HbR,2,61)*1.2;
+HbO = sgolayfilt(HbO,2,61)*1.2; %1.2 is the scaling factor which may vary
+HbR = sgolayfilt(HbR,2,61)*1.2; %1.2 is the scaling factor which may vary
 c = HbO * x + HbR * y ;
 
 Blue_uncorrected = Blue_uncor(11:end)./mean(Blue_uncor(1:10));
