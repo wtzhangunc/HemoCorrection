@@ -1,18 +1,19 @@
+#Yue Yang, 04/07/2022
+
 args = commandArgs(trailingOnly=TRUE)
 
 data_file = args[1]
 param_file = args[2]
 output_file = args[3]
 path = args[4]
-#Rscript --vanilla hemo_correction.R  run18Residue.xlsx parameters.xlsx Output_fit.txt ~/data/R_test/fMRI_CION
 
 setwd(path)
 #install.packages("readxl")
 library("readxl")
 
-ehbo = 331462
-ehbr = 261958
-x405 = 0.0158 ###Harry's latest excitaiton X405 value  
+ehbo = 331462 # extinction coefficient of oxygenated Hb at 405nm
+ehbr = 261958 # extinction coefficient of deoxygenated Hb at 405nm
+x405 = 0.0158 ### Excitaiton light pathlength at 405nm  
 
 n = 55
 
