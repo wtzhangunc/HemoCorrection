@@ -1,6 +1,6 @@
 # HemoCorrection
 # This projected is related to the paper published by STAR Protocols
-# Titled with "Simultaneous Recording of Neuronal and Vascular Activity Using Fiber-photometry "
+# Titled "Simultaneous Recording of Neuronal and Vascular Activity Using Fiber-photometry "
 
 # (1) for the GCamP and tdTomato data, download the following files
 #   a. SampleDataGCaMPtdTomato.txt, 
