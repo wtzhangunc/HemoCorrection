@@ -41,6 +41,7 @@ Hbs=cell2mat(Hbs);
 Output.HbO = Hbs(:,1);
 Output.HbR = Hbs(:,2);
 Output.HbT=Hbs(:,1)+Hbs(:,2);
+Output.goodness = Hbs(:,4)
 Output.G = coef(1,:)';
 Output.Td = coef(2,:)';
 
