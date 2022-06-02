@@ -40,7 +40,10 @@ Titled "Simultaneous Recording of Neuronal and Vascular Activity Using Fiber-pho
      
        [Td_cor,Td_uncor_perc]=GreenSignalsCorrectedbyHb(Td_uncor,HbO,HbR);
 
-       Check the Td_cor curve to see if it's flat. If not, you may need to adjust the scaling factor in line 19 and 20 in "GreenSingalsCorrectedbyHb". Currently it is 1.2, you may try different factors ranging from 1.2- 1.6. This factor is used to retore the actual amplitude of HbO and HbR, which became smaller by smoothing effect. 
+       Check the Td_cor curve to see if it's flat. 
+       If not, you may need to adjust the scaling factor in line 19 and 20 in "GreenSingalsCorrectedbyHb". 
+       This factor is used to retore the actual amplitude of HbO and HbR, which became smaller by smoothing effect. 
+       Currently the scaling factor is set to 1.2, you may try different factors ranging from 1.2- 1.6. 
        
        Once the scaling factor was decided with tdTomato correction, use the SAME scaling factor for next step in "BlueSignalsCorrectedbyHb"
        
