@@ -18,8 +18,11 @@ Titled "Simultaneous Recording of Neuronal and Vascular Activity Using Fiber-pho
    
 # (2) edit HemoCalcGreen163.m to fit your own environment
    a. line 6: make sure commend "Rscript" is somewhere in your computer. "/usr/local/bin" is the default directory when I installed the R package
+   
    b. line 7: "hemo_correction_script163_github.R" is the R script that you downloaded from step (1). This line defines where you saved it.
+   
    c. Double check if the wavelength range defiend in line 10 was the real range in your specfiic spetrometer. It variies from spectrometer A to B, etc.
+   
    d. line 14-19 are for linear unmixing. If you already run it, just comments out these lines and read in your coefficients with first ROW containing 
       coefficients of GCaMP and second ROW containing coefficients of tdTomato.
 
