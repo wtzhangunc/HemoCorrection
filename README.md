@@ -36,11 +36,19 @@ Titled "Simultaneous Recording of Neuronal and Vascular Activity Using Fiber-pho
        [Output]=HemoCalcGreen163(M);
        
 # (4)  run following commands to get the corrected GCaMP and tdTomato signals   
-
-       [G_cor,G_uncor_perc]=BlueSignalsCorrectedbyHb(G_uncor,HbO,HbR);
-       
+     (a) Correct the tdTomato signal first
+     
        [Td_cor,Td_uncor_perc]=GreenSignalsCorrectedbyHb(Td_uncor,HbO,HbR);
 
+       Check the Td_cor curve to see if it's flat. If not, you may need to adjust the scaling factor in line 19 and 20 in "GreenSingalsCorrectedbyHb". Currently it is 1.2, you may try different factors ranging from 1.2- 1.6. This factor is used to retore the actual amplitude of HbO and HbR, which became smaller by smoothing effect. 
+       
+       Once the scaling factor was decided with tdTomato correction, use the SAME scaling factor for next step in "BlueSignalsCorrectedbyHb"
+       
+      (b) Correct the GCaMP signal
+      
+       [G_cor,G_uncor_perc]=BlueSignalsCorrectedbyHb(G_uncor,HbO,HbR);
+       
+      
 
 
    
