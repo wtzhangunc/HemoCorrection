@@ -45,7 +45,8 @@ Titled "Simultaneous Recording of Neuronal and Vascular Activity Using Fiber-pho
        This factor is used to retore the actual amplitude of HbO and HbR, which became smaller by smoothing effect. 
        Currently the scaling factor is set to 1.2, you may try different factors ranging from 1.2- 1.6. 
        
-       Once the scaling factor was decided with tdTomato correction, use the SAME scaling factor for next step in "BlueSignalsCorrectedbyHb"
+       Once the scaling factor was decided with tdTomato correction, 
+       use the SAME scaling factor for next step in "BlueSignalsCorrectedbyHb"
        
       (b) Correct the GCaMP signal
       
