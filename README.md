@@ -31,7 +31,7 @@ Titled "Simultaneous Recording of Neuronal and Vascular Activity Using Fiber-pho
 
        tmp = detectImportOptions(TextFile);%TextFile is the raw data file
        NumOfHeaderlines = tmp.DataLines(1,1);
-       M = dlmread(TextFile,'\t',NumOfHeaderLines,2);
+       M = dlmread(TextFile,'\t',NumOfHeaderlines,2);
        M = M';
        [Output]=HemoCalcGreen163(M);
        
